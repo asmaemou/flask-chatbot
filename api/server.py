@@ -34,13 +34,6 @@ app = Flask(__name__)
 CORS(app)
 
 
-# Define the URLs of your website pages
-# PAGE_URLS = {
-#     'home': 'http://localhost:3000/',
-#     'about': 'http://localhost:3000/about',
-#     'service': 'http://localhost:3000/services',
-#     'contact': 'http://localhost:3000/contact',
-# }
 def create_llama_index():
         
     index_dir = 'index'  # Specify the directory your index will be stored
