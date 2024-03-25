@@ -15,7 +15,7 @@ from llama_index.core.base.llms.types import ChatMessage,MessageRole
 
 import os
 
-os.environ["REPLICATE_API_TOKEN"] ="r8_bcABLvl5BKBeHKJVjL4lmEAblqbZuhx13mcZf"
+os.environ["REPLICATE_API_TOKEN"] ="r8_RoVpKgC9PT0SUqyYGdWmUr4qjBKZ2Sr2EcrN2"
 
 Settings.embed_model= JinaEmbedding(
     api_key="jina_a706cf657cb44a228b0171965f49bf83PK6_1iMw-bARcrTjZdeWbmEejpq6",
@@ -117,7 +117,7 @@ def query_index(prompt, chat_history):
     chat_engine = CondenseQuestionChatEngine.from_defaults(
         query_engine=query_engine,
         condense_question_prompt=get_custom_prompt(),
-        chat_history=getChatHistory(chat_history),
+        # chat_history=getChatHistory(chat_history),
         verbose=True,
         llm=Settings.llm,
     )
@@ -126,6 +126,7 @@ def query_index(prompt, chat_history):
     return response_node.response
 @app.route('/')
 def hello_world():
+    print('Hello World!')
     return jsonify({'result': "Hello world"})
 
 @app.route('/ask_asmae', methods=['POST'])
@@ -143,6 +144,7 @@ def query_endpoint():
 
 if __name__ == '__main__':
     # create_llama_index()
-    app.run(debug=True,host="localhost",port=1234)
+    print('Starting server...')
+    app.run(debug=True,host="0.0.0.0",port=1234)
 
 
