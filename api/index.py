@@ -11,6 +11,7 @@ from llama_index.embeddings.jinaai import JinaEmbedding
 from llama_index.llms.replicate import Replicate
 from llama_index.core import Settings
 from llama_index.core.base.llms.types import ChatMessage,MessageRole
+from flask_cors import CORS
 
 
 import os
@@ -32,6 +33,7 @@ Settings.llm = Replicate(
 
 app = Flask(__name__)
 CORS(app)
+
 
 
 def create_llama_index():
